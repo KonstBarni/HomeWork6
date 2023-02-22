@@ -1,17 +1,22 @@
  #pragma once
  #include "IclassElectrinics.h"
 
-class Device : public IElectronics
+class Device : virtual public IElectronics          // базовый класс для девайсов
 {   
 protected:
-
-    int _batteryLife;
-
+    uint _batteryLife;
 public:
-    Device (int batteryLife);
-
+    Device (uint batteryLife);
     virtual void ShowSpec() override;
-   
-    
-    //~Device();
+};
+
+class Player final : public Device                  //player
+{
+    std::string _name;
+    uint _totalTracks;
+public:
+    Player(const std::string& name, uint batteryLife, uint totalTracks);
+    void ShowSpec() override;
+    void ShowTotalTrack();
+    ~Player() = default;
 };
