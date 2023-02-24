@@ -20,3 +20,13 @@ public:
     void ShowSpec();
     ~Refrigirator() = default;
 };
+
+class Oven final : public Appliances        //Духовой шкаф
+{
+    std::string _name;
+    bool _grill;
+public:
+    Oven(const std::string& name, uint weight, bool grill);
+    void ShowSpec();
+    ~Oven() = default;
+};

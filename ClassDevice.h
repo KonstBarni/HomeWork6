@@ -20,3 +20,13 @@ public:
     void ShowTotalTrack();
     ~Player() = default;
 };
+
+class Photo final : public Device                  //фотоаппарат
+{
+    std::string _name;
+    uint _memory;
+public:
+    Photo(const std::string& name, uint batteryLife, uint memory);
+    void ShowSpec() override;
+    ~Photo() = default;
+};
